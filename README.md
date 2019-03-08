@@ -28,3 +28,6 @@ ifconfig eth1 0.0.0.0
 
 #### Startup (Permanent)
 Create a new triggered task in Task Scheduler with the commands above. To be on the safe side, add a `sleep 60` in the top to allow troubleshooting of broken bridge during reboot.
+
+#### Known problems
+* When LAN1 or LAN2 goes down, the bridge dies. Not sure why. As a result, a hard restart is needed. Feel free to send a Pull Request addressing this.
