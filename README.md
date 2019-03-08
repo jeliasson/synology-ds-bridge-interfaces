@@ -25,8 +25,10 @@ start)
         ifconfig br0 10.242.1.200 netmask 255.255.255.0 up
         brctl addif br0 eth0
         brctl addif br0 eth1
-        ifconfig eth0 10.242.1.200 promisc up
-        ifconfig eth1 10.242.1.201 promisc up
+        ifconfig eth0 10.242.1.200 netmask 255.255.255.0 promisc up
+        ifconfig eth1 10.242.1.201 netmask 255.255.255.0 promisc up
+        ip addr del 10.242.1.200/24 dev eth0
+        ip addr del 10.242.1.201/24 dev eth1
         route add default gw 10.242.1.1 dev br0
         echo "> Done"
         ;;
